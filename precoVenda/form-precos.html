@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css”>
+    <meta charset="utf-8">
+    <title>Calculo preco</title>
+  </head>
+  <body>
+    <div class=”container”>
+    <div class=”jumbotron”>
+      <h1>Calculo de preço</h1>
+    </div>
+    <div class="form-goup">
+    <form id="form" action="/calcular" method="post">
+      <div class="row">
+        Preço Unitário: <input type="number" name="preco" placeholder="0.00">
+      </div>
+      <div class="row">
+        Quantidade: <input type="number" pattern="[0-9]" min=1 max=999 name="quantidade" value="1">
+              </div>
+      <div class="row">
+        Desconto: <input type="number" name="desconto" min =0.00 placeholder="0.00">
+      </div>
+
+      <input type="submit" value="Calcular" class="btn btn-primary">
+    </form>
+    </div>
+    </div>
+  </body>
+</html>
