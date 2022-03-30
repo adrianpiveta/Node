@@ -11,7 +11,7 @@ var servidor = app.listen(8080, function() {
 });
 
 app.get('/', function (req, res) {
-  fs.readFile('DadoPag.html', function (erro,dado){
+  fs.readFile('LancaMoeda.html', function (erro,dado){
 
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(dado);
@@ -20,17 +20,15 @@ app.get('/', function (req, res) {
 });
 
 app.post('/sorteia',urlencodedParser, function (req, res) {
-      fs.readFile('DadoPag.html', function (erro,dado){
-      var sorteados={'1':0, '2':0, '3':0, '4':0, '5':0, '6':0};
-      for (var i=0; i<50;i++){
-        var sorteio=parseInt(Math.random()*(6)+1);
+      fs.readFile('MoedaResult.html', function (erro,dado){
+      var sorteados={'1':0, '2':0};
+      for (var i=0; i<200;i++){
+        var sorteio=parseInt(Math.random()*(2)+1);
         var posicao= sorteio.toString;
         sorteados[sorteio]=(sorteados[sorteio]+1);
       }
-      var valores = {
-        'sorteio':"Esperando sorteio"
-      };
-      for (var i=1; i<7; i++){
+      var valores = {    'sorteio': 0  };
+      for (var i=1; i<3; i++){
         var add="sorteio"
         add=add+i
         valores[add]=sorteados[i];
