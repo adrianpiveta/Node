@@ -20,26 +20,23 @@ app.get('/', function (req, res) {
 
 app.post('/calcula', urlencodedParser,function (req, res){
   fs.readFile("ResNota.html", function (erro, dado) {
-    var notas={
-      'nota1': req.body.nota1,
-      'nota2': req.body.nota2
-    }
-    var media=0;
-    for(var chave in notas){
-      media=media+notas[chave];
-    }
-    media/=notas.lengt;
+    var median= (Number(req.body.nota1) + Number(req.body.nota2))/2;
+    var caminho=""
+    if(median>=6 && median<=10)
+      caminho="https://www.santacarmem.mt.leg.br/aprovado.png/image_preview"
+    if(median<6 && median>=0)
+      caminho="https://www.santacarmem.mt.leg.br/reprovado.jpg"
     valores={
-      'media': media
+      'media': median,
+      'caminho': caminho
     }
     for (var chave in valores){
       dado = dado+"";
       dado = dado.replace("{{" + chave + "}}", valores[chave]);
     }
-    for (var chave in notas){
-      dado = dado+"";
-      dado = dado.replace("{{" + chave + "}}", notas[chave]);
-    }
+    setTimeout(function () {
+
+    }, 10);
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(dado);
     res.end();
