@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Produtos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--jquery scripsts-->
+    <script src=”https://code.jquery.com/jquery-3.3.1.slim.min.js”></script>
+    <!--Ajax-->
+    <script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js”></script>
+
+    <!--Popper-->
+    <script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js”></script>
+
+    <!--Bootstrap-->
+    <script src=”https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js”></script>
+    <script src=”scripts/frontend.js” type=”application/javascript”></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>produtos</h1>
+      <input type="button" class="btn btn-primary" value="Novo..." onclick="incluir()">
+      <table class="table table-hover">
+        <tr class="table-primary">
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>Código</td>
+          <td>Descrição</td>
+          <td>Preço</td>
+        </tr>
+        <% dados.forEach((function (item) { %>
+          <tr>
+            <td>
+              <img src="images/editar.png" width="24" onclick="editar(<%= item.codigo %>)" alt="Editar"/>
+            </td>
+            <td>
+              <img src="images/deletar.png" width="24" onclick="deletar(<%=item.codigo %>)" alt="Deletar"/>
+            </td>
+            <td><%= item.codigo %></td>
+            <td><%= item.descricao %> </td>
+            <td align="right"><%= item.preco.toFixed(2) %></td>
+          </tr>
+
+        }, i) => {
+
+        });
+
+
+      </table>
+
+    </div>
+
+  </body>
+</html>

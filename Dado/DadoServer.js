@@ -42,8 +42,8 @@ app.post('/sorteia',urlencodedParser, function (req, res) {
     }
     setTimeout(function(){}, 50);
     res.writeHead(200, {'Content-type':'text/html'});
-    res.write(dado);
 
-    res.end();
+    res.write(dado);
+    res.end("<h1>Jogo de Dados</h1>Batata?<img src=dado' + 1 + '.jpg>'");
   });
 });
